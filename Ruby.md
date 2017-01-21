@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # The Ruby language
 ## Intro
 Interactive shell: `irb`  
@@ -695,4 +696,3 @@ Automated way to display errors:
 <% end %>
 ~~~
 This prints **verbose, user readable** errors.
-
