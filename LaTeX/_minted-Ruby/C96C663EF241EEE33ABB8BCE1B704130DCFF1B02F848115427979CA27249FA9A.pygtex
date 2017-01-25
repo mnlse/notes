@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{=begin}
+\PYG{c+cm}{Everything here is a comment.}
+\PYG{c+cm}{The =begin and =end here are not recognized.}
+\PYG{c+cm}{It has to be at the beginning of the line to be recognized as a keyword.}
+\PYG{c+cm}{=end}
+\PYG{n+nb}{puts} \PYG{l+s+s2}{\PYGZdq{}This is code\PYGZdq{}}
+\end{Verbatim}

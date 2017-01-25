@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{world\PYGZus{}doesnt\PYGZus{}exist} \PYG{o}{=} \PYG{k+kp}{true}
+\PYG{n+nb}{puts} \PYG{l+s+s2}{\PYGZdq{}Hello world\PYGZdq{}} \PYG{k}{unless} \PYG{n}{world\PYGZus{}doesnt\PYGZus{}exist}
+\end{Verbatim}
