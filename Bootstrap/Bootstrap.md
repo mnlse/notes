@@ -565,6 +565,7 @@ Alerts can be dismissable:
 ![progress_bar](images/progress_bar.png)
 
 # Tables & Pagination
+## Tables
 ![table_striped](images/table_striped.png)
 ~~~html
 <table class="table table-striped">
@@ -593,4 +594,125 @@ Alerts can be dismissable:
     </tr>
   </tbody>
 </table>
+
+<table class="table table-dark">
+</table>
+
+<table class="table">
+</table>
 ~~~
+
+## Pagination
+![pagination](images/pagination.png)
+~~~html
+<nav>
+  <ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" href="#">&larr; Previous</a></li>
+    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next &rarr;</a></li>
+~~~
+
+Content justification:
+* justify-content-center
+* justify-content-end
+
+# Cards
+~~~html
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Card title</h4>
+    <h5 class="card-subtitle">Subtitle</h4>
+    <p class="card-text">Consectetur dolores accusamus facere beatae quisquam aliquam, sunt, consequuntur? Nisi.</p>
+  </div>
+</div>
+
+~~~
+
+Card with image:
+
+![card_with_img](images/card_with_img.png)
+
+~~~html
+<!-- with image -->
+<div class="card m-5" style="width: 20rem;">
+  <img class="card-img-top" src="http://placehold.it/300x300" alt="sports image">
+  <div class="card-body">
+    <h4 class="card-title">
+      Card Title
+    </h4>
+    <div class="card-text">
+      Adipisicing aperiam obcaecati maxime ullam dolores. Quae natus corrupti nihil.
+      <button class="btn btn-success btn-block my-3">Click Here</button>
+    </div>
+  </div>
+</div>
+~~~
+
+Card with header:
+![card_with_header](images/card_with_header.png)
+~~~html
+<div class="card">
+  <div class="card-header">
+    My card
+  </div>
+
+  <div class="card-body">
+  </div>
+</div>
+~~~
+
+Card with contextual bg:
+![card_with_bg](images/card_with_bg.png)
+~~~html
+<div class="card bg-primary m-5" style="width: 20rem;">
+  <h4 class="card-header">
+    Hello World
+  </h4>
+  <div class="card-body">
+    Dolor deserunt consectetur doloremque dolorum incidunt Deleniti modi amet quae labore in Molestiae eos odit minus quibusdam excepturi Magnam accusamus incidunt porro veniam harum autem? Hic cum nemo reprehenderit minima
+    <button class="btn btn-secondary btn-block">
+      Test
+    </button>
+  </div>
+</div>
+
+<!-- contextual bg classes -->
+<div class="card bg-secondary"></div>
+<div class="card bg-danger"></div>
+<div class="card bg-warning"></div>
+<div class="card bg-dark"></div>
+
+<!-- contextual border classes -->
+<div class="card border-success"></div>
+<div class="card border-danger"></div>
+<div class="card border-warning"></div>
+~~~
+
+[Official Documentation](https://getbootstrap.com/docs/4.0/components/card/)
+
+
+# Grids
+![grid_basic](images/grid_basic.png)
+~~~html
+<div class="row">
+  <div class="col"></div>
+  <div class="col-sm-6"></div>
+  <div class="col"></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6"></div>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-3"></div>
+</div>
+
+<!-- ordering -->
+<div class="row">
+  <div class="col-md order-2">
+  <div class="col-md order-1">
+</div>
+~~~
+
+
