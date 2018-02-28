@@ -233,7 +233,124 @@ Normal flow, when goes out of viewport sticks to the top (becomes fixed):
 Margins are prefixed by `m`. You can specify `m-1`, `mx-1`, `my-1`, `mt-1`, `mb-1`
 
 Margin of top, right, bottom, left are specified by the general `m` property.
-You can specify numbers from 1 to 5. Example
+You can specify numbers from 1 to 5. Examples:
+![margin_padding](images/margins_padding.png)
 ~~~html
-  <h1 class="bg-success m">Hello World</h1>
+  <!-- ---------------- MARGIN ---------------- -->
+  <!-- general margin (x and y axis) -->
+  <h1 class="m-1">m-1</h1>
+  <h1 class="m-2">m-2</h1>
+  <h1 class="m-3">m-3</h1>
+  <h1 class="m-4">m-4</h1>
+  <h1 class="m-5">m-5</h1>
+
+  <!-- margin on x axis -->
+  <h1 class="mx-1"></h1>
+  <h1 class="mx-2"></h1>
+  <h1 class="mx-3"></h1>
+  <h1 class="mx-4"></h1>
+  <h1 class="mx-5"></h1>
+
+  <!-- margin on y axis -->
+  <h1 class="my-1"></h1>
+  <h1 class="my-2"></h1>
+  <h1 class="my-3"></h1>
+  <h1 class="my-4"></h1>
+  <h1 class="my-5"></h1>
+
+  <!-- margin left -->
+  <h1 class="ml-1"></h1>
+  <h1 class="ml-2"></h1>
+  <h1 class="ml-3"></h1>
+  <h1 class="ml-4"></h1>
+  <h1 class="ml-5"></h1>
+
+  <!-- margin right -->
+  <h1 class="mr-1"></h1>
+  <h1 class="mr-2"></h1>
+  <h1 class="mr-3"></h1>
+  <h1 class="mr-4"></h1>
+  <h1 class="mr-5"></h1>
+
+  <!-- ---------------- PADDING ---------------- -->
+
+  <!-- general padding (x and y axis) -->
+  <h1 class="p-1"></h1>
+  <h1 class="p-2"></h1>
+  <h1 class="p-3"></h1>
+  <h1 class="p-4"></h1>
+  <h1 class="p-5"></h1>
+
+
+  <!-- padding on x axis -->
+  <h1 class="px-1"></h1>
+  <h1 class="px-2"></h1>
+  <h1 class="px-3"></h1>
+  <h1 class="px-4"></h1>
+  <h1 class="px-5"></h1>
+
+  <!-- padding on y axis -->
+  <h1 class="py-1"></h1>
+  <h1 class="py-2"></h1>
+  <h1 class="py-3"></h1>
+  <h1 class="py-4"></h1>
+  <h1 class="py-5"></h1>
+
+  <!-- padding left -->
+  <h1 class="pl-1"></h1>
+  <h1 class="pl-2"></h1>
+  <h1 class="pl-3"></h1>
+  <h1 class="pl-4"></h1>
+  <h1 class="pl-5"></h1>
+
+  <!-- padding right -->
+  <h1 class="pr-1"></h1>
+  <h1 class="pr-2"></h1>
+  <h1 class="pr-3"></h1>
+  <h1 class="pr-4"></h1>
+  <h1 class="pr-5"></h1>
 ~~~
+
+# Sizing & Borders
+## Width:
+![width_property](images/width_property.png)
+
+~~~html
+<div class="w-25">This element takes 25%</div>
+<div class="w-50">This element takes 50%</div>
+<div class="w-75">This element takes 75%</div>
+~~~
+
+## Height:
+![width_height_classes](images/width_height_classes.png)
+~~~html
+<div style="width: 300px; height: 300px; border: 1px solid black; m-5" class="parent">
+  <div class="child bg-primary w-25 h-25"> <!-- takes 25% width and 25% height of parent -->
+  </div>
+</div>
+~~~
+
+You cannot specify other values in the class.
+
+
+## Borders
+~~~html
+<div class="m-5 w-50 h-50 border border-primary"></div>
+<div class="m-5 w-50 h-50 border border-secondary"></div>
+<div class="m-5 w-50 h-50 border border-success"></div>
+<div class="m-5 w-50 h-50 border border-info"></div>
+<div class="m-5 w-50 h-50 border border-danger"></div>
+<div class="m-5 w-50 h-50 border border-warning"></div>
+<div class="m-5 w-50 h-50 border border-light"></div>
+<div class="m-5 w-50 h-50 border border-dark"></div>
+
+<!-- You can also add rounded corners through the "rounded" class: -->
+<div class="border border-primary rounded"></div>
+<div class="border border-secondary rounded"></div>
+
+<!-- To remove a bottom border: -->
+<div class="border border-primary rounded border-bottom-0"></div>
+~~~
+![borders](images/borders.png)
+
+Hello World
