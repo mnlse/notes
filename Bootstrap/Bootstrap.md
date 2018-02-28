@@ -351,6 +351,76 @@ You cannot specify other values in the class.
 <!-- To remove a bottom border: -->
 <div class="border border-primary rounded border-bottom-0"></div>
 ~~~
-![borders](images/borders.png)
 
-Hello World
+# Buttons
+~~~html
+<button class="btn btn-primary"></button>
+<button class="btn btn-info"></button>
+<button class="btn btn-success"></button>
+<button class="btn btn-alert"></button>
+<button class="btn btn-warning"></button>
+<button class="btn btn-danger"></button>
+~~~
+
+## Outline buttons
+~~~html
+<button class="btn btn-outline-primary"></button>
+<button class="btn btn-outline-info"></button>
+<button class="btn btn-outline-success"></button>
+<button class="btn btn-outline-alert"></button>
+<button class="btn btn-outline-warning"></button>
+<button class="btn btn-outline-danger"></button>
+~~~
+
+## Button styles
+~~~html
+<!-- large button -->
+<button class="btn btn-primary btn-large"></button>
+<!-- disabled button -->
+<button class="btn btn-primary disabled"></button>
+<!-- active button -->
+<button class="btn btn-primary active"></button>
+~~~
+
+## Dropdown button
+~~~html
+<div class="dropdown">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    Hello World
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Test</a>
+    <a class="dropdown-item" href="#">Test</a>
+    <a class="dropdown-item" href="#">Test</a>
+  </div>
+</div>
+~~~
+
+## Button groups
+~~~html
+<div class="btn-group">
+  <button class="btn"></button>
+  <button class="btn"></button>
+</div>
+~~~
+
+# Navbar & Nav
+## Navbar
+~~~haml
+  nav.navbar.navbar-expand-sm.navbar-light.bg-light
+    .container
+      .navbar-brand
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link Test
+          li.nav-item
+            a.nav-link Test
+~~~
+
+[Official Documentation](https://getbootstrap.com/docs/4.0/components/navbar/)
+
+## Nav
+[Official Documentation](https://getbootstrap.com/docs/4.0/components/navs/)
+
+# List groups & Badges
+
