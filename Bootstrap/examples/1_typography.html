@@ -181,17 +181,11 @@
     <h1> Width & Height </h1>
     <div style="width: 300px; height: 300px; border: 1px solid black; m-5"class="parent m-5">
       <div class="child bg-primary w-25 h-25"> <!-- takes 25% width and 25% height of parent -->
-      </div>
+		</div>
+		</div>
 
-      <div class="m-5 w-50 h-50 border border-primary rounded">border-primary rounded</div>
-      <div class="m-5 w-50 h-50 border border-secondary">border-secondary</div>
-      <div class="m-5 w-50 h-50 border border-success">border-success</div>
-      <div class="m-5 w-50 h-50 border border-info">border-info</div>
-      <div class="m-5 w-50 h-50 border border-danger">border-danger</div>
-      <div class="m-5 w-50 h-50 border border-warning">border-warning</div>
-      <div class="m-5 w-50 h-50 border border-light">border-light</div>
-      <div class="m-5 w-50 h-50 border border-dark">border-dark</div>
-
+			<hr>
+			<h1 class="clearfix">Buttons</h1>
       <button class="btn btn-primary">a</button>
       <button class="btn btn-info">a</button>
       <button class="btn btn-success">a</button>
@@ -199,6 +193,8 @@
       <button class="btn btn-danger">a</button>
 
 
+			<hr>
+			<h1>Dropdown</h1>
       <div class="dropdown">
         <button type="button" class="m-5 btn btn-primary dropdown-toggle" data-toggle="dropdown">
           Hello World
@@ -211,12 +207,85 @@
         </div>
       </div>
 
+			<hr>
+			<h1>Button groups</h1>
       <div class="btn-group m-3">
         <button class="btn btn-primary">Test</button>
         <button class="btn btn-secondary">Buttons</button>
       </div>
 
+      <hr>
+      <h1>List-group</h1>
+			<ul class="list-group">
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					Cras justo odio
+					<span class="badge badge-primary badge-pill">14</span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					Dapibus ac facilisis in
+					<span class="badge badge-primary badge-pill">2</span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					Morbi leo risus
+					<span class="badge badge-primary badge-pill">1</span>
+				</li>
+			</ul>
 
+      <hr>
+      <h1>
+        Button Outlines
+      </h1>
+      <button class="btn btn-outline-primary">
+        Main button
+      </button>
+      <button class="btn btn-outline-secondary">
+        Main button
+      </button>
+      <button class="btn btn-outline-warning">
+        Main button
+      </button>
+      <button class="btn btn-lg btn-primary">
+        Main button
+      </button>
+
+      <hr>
+      <h1>Breadcrumbs</h1>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active"><a href="#">Blog</a></li>
+        <li class="breadcrumb-item"><a href="#">Articles</a></li>
+      </ol>
+
+      <hr>
+      <h1>Forms</h1>
+      <h3>Form row</h3>
+      <div class="form-row">
+        <div class="col">
+          <input class="form-control" type="">
+        </div>
+        <div class="col">
+          <input class="form-control is-valid" type="">
+        </div>
+      </div>
+
+      <hr>
+      <h1>Input group</h1>
+      <div class="input-group my-5">
+        <div class="input-group-prepend">
+          <span class="input-group-text">$</span>
+        </div>
+        <input type="text" class="form-control">
+        <div class="input-group-append">
+          <span class="input-group-text">.00</span>
+        </div>
+      </div>
+
+      <div class="alert alert-success alert-dismissable fade show">
+        <button type="button" class="close" data-dismiss="alert">
+          <span>&times;</span>
+        </button>
+        <strong>Dismissable</strong> Blog post added
+      </div>
     </div>
   </div>
 

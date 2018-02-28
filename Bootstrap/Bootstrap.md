@@ -375,7 +375,7 @@ You cannot specify other values in the class.
 ## Button styles
 ~~~html
 <!-- large button -->
-<button class="btn btn-primary btn-large"></button>
+<button class="btn btn-primary btn-lg"></button>
 <!-- disabled button -->
 <button class="btn btn-primary disabled"></button>
 <!-- active button -->
@@ -407,14 +407,14 @@ You cannot specify other values in the class.
 # Navbar & Nav
 ## Navbar
 ~~~haml
-  nav.navbar.navbar-expand-sm.navbar-light.bg-light
-    .container
-      .navbar-brand
-        ul.navbar-nav
-          li.nav-item
-            a.nav-link Test
-          li.nav-item
-            a.nav-link Test
+nav.navbar.navbar-expand-sm.navbar-light.bg-light
+  .container
+    .navbar-brand
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link Test
+        li.nav-item
+          a.nav-link Test
 ~~~
 
 [Official Documentation](https://getbootstrap.com/docs/4.0/components/navbar/)
@@ -423,4 +423,117 @@ You cannot specify other values in the class.
 [Official Documentation](https://getbootstrap.com/docs/4.0/components/navs/)
 
 # List groups & Badges
+## Lists groups:
+~~~haml
+ul.list-group
+  li.list-group-item Text
 
+-#
+  To make it light up when you hover:
+ul.list-group
+  li.list-group-item.list-group-item-action Text
+~~~
+
+You can use contextual classes with list groups:
+~~~haml
+ul.list-group
+  li.list-group-item.list-group-item-primary
+  li.list-group-item.list-group-item-success
+  li.list-group-item.list-group-item-warning
+~~~
+
+## Badges
+![list_with_badges](images/list_with_badges.png)
+[Official Documentation](https://getbootstrap.com/docs/4.0/components/list-group/)
+
+## Breadcrumbs
+![breadcrumbs](images/breadcrumbs.png)
+~~~haml
+ol.breadcrumb
+	li.breadcrumb-item
+		a{ :href => Home } Home
+	li.breadcrumb-item.active
+		a{ :href => Home } Library
+	li.breadcrumb-item
+		a{ :href => Home } Data
+~~~
+
+# Forms
+~~~haml
+.form-group
+	%label{ for: "name" } Name
+		%input.form-control{ id: "name", type: "text" }
+-#
+	You can make the form control large or small
+
+.form-control.form-control-sm
+.form-control.form-control-lg
+~~~
+
+Form row:
+~~~haml
+.form-row
+	.col
+		input.form-control{ placeholder: "First name" }
+	.col
+		input.form-control{ placeholder: "Last name"
+~~~
+
+Form validation:
+~~~haml
+
+-#
+	Add the .is-valid class to give a green border
+
+.form-group
+  label{ for: "test" } Test
+	input.form_control.is-valid{ id: "test" }
+
+-#
+	Invalid is .is-invalid
+
+.form-group
+  label{ for: "test" } Test
+	input.form_control.is-invalid{ id: "test" }
+~~~
+
+# Input groups
+![input_group](images/input_group.png)
+~~~html
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">$</span>
+  </div>
+  <input type="text" class="form-control">
+  <div class="input-group-append">
+    <span class="input-group-text">.00</span>
+  </div>
+</div>
+~~~
+
+# Alerts
+Alerts also have contextual classes.
+
+~~~html
+<div class="alert alert-primary">
+  Primary
+</div>
+<div class="alert alert-secondary">
+  Secondary
+</div>
+<div class="alert-alert-success">
+  Success
+</div>
+<!-- etc. -->
+~~~
+
+Alerts can be dismissable:
+![dismissable_alert](images/dismissable_alert.png)
+~~~html
+<div class="alert alert-success alert-dismissable fade show">
+  <button type="button" class="close" data-dismiss="alert">
+    <span>&times;</span>
+  </button>
+  <strong>Dismissable</strong> Blog post added
+</div>
+~~~
