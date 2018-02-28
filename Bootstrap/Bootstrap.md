@@ -511,7 +511,8 @@ Form validation:
 </div>
 ~~~
 
-# Alerts
+# Alerts & Progress bars
+## Alerts
 Alerts also have contextual classes.
 
 ~~~html
@@ -524,7 +525,15 @@ Alerts also have contextual classes.
 <div class="alert-alert-success">
   Success
 </div>
+
 <!-- etc. -->
+
+
+<!-- alert with a link (the color matches) -->
+<div class="alert alert-warning">
+  Alert! This is a warning.
+  <a class="alert-link" href="#">Read more</a>
+</div>
 ~~~
 
 Alerts can be dismissable:
@@ -536,4 +545,52 @@ Alerts can be dismissable:
   </button>
   <strong>Dismissable</strong> Blog post added
 </div>
+~~~
+
+## Progress bars
+~~~html
+<!-- normal progress bar -->
+<div class="progress my-5">
+  <div class="progress-bar" style="width: 35%;">
+  </div>
+</div>
+
+<!-- striped progress bar with green background -->
+<div class="progress my-5">
+  <div class="progress-bar bg-success progress-bar-striped" style="width: 50%;">
+  </div>
+</div>
+~~~
+
+![progress_bar](images/progress_bar.png)
+
+# Tables & Pagination
+![table_striped](images/table_striped.png)
+~~~html
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>First name</th>
+      <th>Last name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Mark</td>
+      <td>Antonius</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Mark</td>
+      <td>Aurelius</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mark</td>
+      <td>Anthony</td>
+    </tr>
+  </tbody>
+</table>
 ~~~
