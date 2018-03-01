@@ -716,3 +716,89 @@ Card with contextual bg:
 ~~~
 
 
+# Alignment
+
+## Vertical
+### To center:
+![align_items_center](images/align_items_center.png)
+`align-items-center` class
+~~~html
+<div style="height: 200px; border: 1px solid black;" class="m-5 row align-items-center">
+  <div class="col">Test</div>
+  <div class="col">Hello</div>
+  <div class="col">World</div>
+</div>
+~~~
+
+
+### To bottom:
+![align_items_end](images/align_items_end.png)
+`align-items-end` class
+~~~html
+<div style="height: 200px; border: 1px solid black;" class="m-5 row align-items-end">
+  <div class="col">Test</div>
+  <div class="col">Hello</div>
+  <div class="col">World</div>
+</div>
+~~~
+
+### align-self
+![align_self](images/align_self.png)
+~~~html
+<div style="height: 200px; border: 1px solid black;" class="m-5 row">
+  <div class="col align-self-start">align-self-start</div>
+  <div class="col align-self-center">align-self-center</div>
+  <div class="col align-self-end">align-self-end</div>
+</div>
+~~~
+
+
+## Horizontal alignment (justification)
+### To center:
+![justify_content_center](images/justify_content_center.png)
+~~~html
+<div class="m-5 row justify-content-center" style="height: 200px; border: 1px solid black;">
+  <div class="col-2">col 1</div>
+  <div class="col-2">col 2</div>
+</div>
+~~~
+
+
+### To end:
+![justify_content_end](images/justify_content_end.png)
+~~~html
+<div class="row m-5 justify-content-end" style="height: 200px; border: 1px solid black;">
+  <div class="col-2">Col1</div>
+  <div class="col-2">Col2</div>
+  <div class="col-2">Col3</div>
+</div>
+~~~
+
+### Equal margins around item
+![justify_content_around](images/justify_content_around.png)
+`justify-content-around` on `row` element
+~~~html
+<div class="row justify-content-around">
+  <!-- cols -->
+</div>
+~~~
+
+### Equal margins between items
+![justify_content_between](images/justify_content_between.png)
+`justify-content-between` on `row` element
+~~~html
+<div class="row justify-content-between">
+  <!-- cols -->
+</div>
+~~~
+
+### No margins
+~~~html
+<div class="row no-gutters">
+  <!-- cols -->
+</div>
+~~~
+
+# Flexbox
+~~~html
+<div class="d-flex"></div>
