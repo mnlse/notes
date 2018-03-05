@@ -42,8 +42,7 @@ Font weight:
 ~~~
 
 ## Blockquotes
-![typography_blockquote](images/typography_blockquote.png)
-~~~html
+![typography_blockquote](images/typography_blockquote.png)~~~html
 <blockquote class="blockquote">
   This is my blockquote
 </blockquote>
@@ -310,6 +309,8 @@ You can specify numbers from 1 to 5. Examples:
   <h1 class="pr-4"></h1>
   <h1 class="pr-5"></h1>
 ~~~
+
+You can also specify: `mr-auto`, `ml-auto`
 
 # Sizing & Borders
 ## Width:
@@ -752,6 +753,8 @@ Card with contextual bg:
 </div>
 ~~~
 
+You can do: `align-self-md-start`, `align-self-xs-end`
+
 
 ## Horizontal alignment (justification)
 ### To center:
@@ -792,7 +795,7 @@ Card with contextual bg:
 </div>
 ~~~
 
-### No margins
+### No gutters (margins)
 ~~~html
 <div class="row no-gutters">
   <!-- cols -->
@@ -801,4 +804,5 @@ Card with contextual bg:
 
 # Flexbox
 ~~~html
-<div class="d-flex"></div>
+<div class="d-flex flex-row"></div>
+~~~
