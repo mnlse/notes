@@ -1,9 +1,9 @@
-Author: Matthew Nielsen  
+Author: Matthew Nielsen
 License: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons</a>
 
 # 8 - Functions
 
-Function vs function expression:  
+Function vs function expression:
 ~~~
 function(x) { ...code } // “function”
 var fnc = function(x) { ...code } // “function expression”
@@ -12,12 +12,12 @@ var fnc = function(x) { ...code } // “function expression”
 
 ## Anonymous functions
 
-Immediately invoked function expression:  
+Immediately invoked function expression:
 
 Execute the function as soon as you define it. (no invoker at later point):
 
 ~~~
-(function(x){ ... })(x); 
+(function(x){ ... })(x);
 ~~~
 This function gets automatically invoked. This is an *anonymous* function - there is no name for it.
 
@@ -26,15 +26,15 @@ You can write it this way too:
 (function(x){ ... }(x));  // less visually obvious, don’t use
 ~~~
 
-Naming:  
-* **IIFE** - **I**mmediately **I**nvoked **F**unction **E**xpression  
-* Self Executing Anonymous function  
+Naming:
+* **IIFE** - **I**mmediately **I**nvoked **F**unction **E**xpression
+* Self Executing Anonymous function
 
 These functions can have parameters too:
 ~~~
-(function(a,b) { console.log(a + “ “ + b) }) (10,20); 
+(function(a,b) { console.log(a + “ “ + b) }) (10,20);
 => 10 20
-~~~       
+~~~
 
 ## Lexical Scope
 ~~~
@@ -46,7 +46,7 @@ These functions can have parameters too:
 }
 ~~~
 During compile time, the compiler sees that the _child function_ does not have
-the variable `x`, so it looks in the _parent function_ for `x`. 
+the variable `x`, so it looks in the _parent function_ for `x`.
 
 The child function prints “x”, because the compiler passed this variable to the child.
 
@@ -60,7 +60,7 @@ A _closure_ is a function that has access to its own private data
 var fnc = function() {
    var name = “Matt”;
    console.log(name)
-   } // This is a closure 
+   } // This is a closure
 
 function Person(pName) {
    var name  = pName;
@@ -78,22 +78,22 @@ me.getName(); // returns “pName” which in this case is “Matt”
 ~~~
 
 This is the essence of a closure function. It’s a _function that has access to its own_
-_private data_. 
+_private data_.
 
 
 Interesting use of a closure:
 ~~~
-function counter() 
+function counter()
 {
    var n = 0;
-   return 
+   return
       {
       plusOne: function() { n++; },
       resetCounter: function() { n = 0; };
       }
 }
 
-var k = counter(); 
+var k = counter();
 ~~~
 
 `counter()` returns an object with two properties: `plusOne`, `resetCounter`, which is now the `k` variable
@@ -107,7 +107,7 @@ methods and a special `Function()` constructor
 
 ### arguments.length
 Specifies the number of arguments passed to the function. This property is read-only.
-In other words, it returns the _arity_ of the function. 
+In other words, it returns the _arity_ of the function.
 
 **arity** - the number of arguments a function takes at a given invocation
 
@@ -115,11 +115,11 @@ In other words, it returns the _arity_ of the function.
 ### call() and apply()
 
 call() and apply() allow to indirectly _invoke a function_ **as if it were a method** of
-some other object. 
+some other object.
 
 ~~~
 function fnc() { ... };
-fnc.call(objectName); 
+fnc.call(objectName);
 ~~~
 `fnc` will be invoked as a method of object `objectName`.
 
@@ -131,16 +131,16 @@ fnc.call(objectName, arg1, arg2)
 
 fnc.apply(objectName, [arg1, arg2])
                         ^ This is an array!
-~~~                        
+~~~
 
-The difference between `call()` and `apply()` is the way to pass arguments.  
+The difference between `call()` and `apply()` is the way to pass arguments.
 `call()` takes arguments normally, and `apply()` takes an array of arguments.
 
 This enables you to do some iteration on these arguments, or using the .length property.
 You can modify the arguments of apply() more easily, because it’s an array.
 ### bind()
 
-`bind()` ties a function to an object as a method. 
+`bind()` ties a function to an object as a method.
 
 So when you _bind_ a function to an object:
 you create a new object property - a new method, that when executed,
@@ -160,11 +160,11 @@ I can use the `call` and `apply` methods, or I can use the `bind` method.
 ~~~
 var newMethod = fnc.bind(myObject);
 ~~~
-This creates a new variable, that when executed, executes `fnc` **as a method** of 
+This creates a new variable, that when executed, executes `fnc` **as a method** of
 `myObject`.
 
 ~~~
-newMethod(3); 
+newMethod(3);
 ~~~
 
 Note: you can’t do just simply do “fnc.bind(myObject)” without the variable declaration,
@@ -207,7 +207,7 @@ var scope = “global”;
 
 function test() {
    var scope = “local”;
-   return new Function(“return scope”); 
+   return new Function(“return scope”);
 }
 
 test()
@@ -230,7 +230,7 @@ var sum = function(a, b) {
 
 var data = [1,2,3,4,5,6]
 var mean = data.reduce(sum)/data.length; // produces mean of data
-~~~                  
+~~~
 ES6 way to write this function:
 ~~~
 var sum = (a,b) => a+b
@@ -254,28 +254,28 @@ function not(f) {
 var is_even = function(x) { return x % 2 === 0; };
 
 var is_odd = not(even);
-~~~            
+~~~
 
 Function `not` returns a new function, and that function populates variable `odd`
 
-So var `odd` is populated with:  
+So var `odd` is populated with:
 ~~~
 var odd = function() {
           var result = even.apply(this, arguments);
           return !result;
           };
-~~~          
+~~~
 
-even(4)   
-`=> true`  
-odd(3) -> call even, negate result  
+even(4)
+`=> true`
+odd(3) -> call even, negate result
 `=> true`
 
 ### Partial application of a function
 
 This happens when you predefine arguments of a function either by call() or apply().
 
-`f.call(null, 2, 3)`  
+`f.call(null, 2, 3)`
 2 and 3 are predefined arguments, function is partially applied
 
 ### Memoization
@@ -369,13 +369,13 @@ var k = new Date;
 k instanceOf Date;
 => true
 k isPrototypeOf Date;   // Omits the constructor function
-=> true 
+=> true
 ~~~
 
 ## ducktype approach
-There are two basic approaches to classes:  
-• the normal one - an object is an instance of a class if it inherited from it  
-• ducktype - an object is an instance of a class if it looks simmilar to it  
+There are two basic approaches to classes:
+• the normal one - an object is an instance of a class if it inherited from it
+• ducktype - an object is an instance of a class if it looks simmilar to it
 
 If an object looks simmilar to a class, you assume that it’s an instance, even though
 it might not directly inherit.
@@ -396,11 +396,11 @@ JavaScript’s objects are basically _sets of property names, with values associ
 
 Instantiation - creating multiple instances of one thing.
 
-Two types of inheritance:  
-• Classical Inheritance  
+Two types of inheritance:
+• Classical Inheritance
 • Prototypal Inheritance
 
-Classical inheritance is when you use a function and the `new` keyword. 
+Classical inheritance is when you use a function and the `new` keyword.
 
 Prototypal inheritance is when you use a normal object, and you instanciate with
 `Object.create()`
@@ -429,15 +429,15 @@ console.log(mike.name)
 => “mike”
 ~~~
 
-You could do this with prototypial this way:  
+You could do this with prototypial this way:
 
 ~~~
-var Person = 
-{ 
-    initializeName: function(name) 
-    { 
-        this.name = name; 
-    } 
+var Person =
+{
+    initializeName: function(name)
+    {
+        this.name = name;
+    }
 };
 
 var mike = Object.create(Person);
@@ -447,7 +447,7 @@ mike.initializeName(‘mike’);
 This is a very simplistic, rather ineffective way to do this. More effective, writing less:
 
 ~~~
-var Person = { 
+var Person = {
                species: ‘homo sapiens’,
                newInstance: function(name, haircolor, gender) {
                   var newObject = Object.create(this);  // Create new instance
@@ -456,7 +456,7 @@ var Person = {
                   newObject.gender = gender;
                   return newObject;
                };
-~~~               
+~~~
 
 And now you can do this:
 ~~~
@@ -469,7 +469,7 @@ var mikesDaughter = mike.newInstance(....);
 ~~~
 
 To prevent these objects from being parents you you must destroy their reproductive ability, a.k.a. getting rid of
-the `newInstance` method.  
+the `newInstance` method.
 
 `isPrototypeOf` works here:
 
@@ -487,7 +487,7 @@ In OO programming, a class B can _extend_ or _subclass_ another class A.
 We say that A is the _superclass_ and B is the _subclass_. Instances of B inherit all
 instance methods of A.
 
-B can define its own methods, and override its superclass. 
+B can define its own methods, and override its superclass.
 
 ~~~
 var superclass = { x:1, y:2 };
@@ -509,9 +509,9 @@ subclass.z;
 
 # Advanced JavaScript
 ## Introduction
-Books:  
-• You don’t know JS  
-• JavaScript Patterns  
+Books:
+• You don’t know JS
+• JavaScript Patterns
 • High Performance JavaScript
 
 <a href="http://www.github.com/rwldrn/idiomatic.js" target="_blank">Idiomatic.js</a> style guide
@@ -521,11 +521,11 @@ EcmaScript Language Specification - difficult reading
 Search functionality is your friend when reading the spec.
 
 ## 1. Scope
-### Intro 
+### Intro
 JavaScript is a compiled language, but it’s different - we don’t distribute
-binary blobs. 
+binary blobs.
 
-The difference between compiled vs interpreted:  
+The difference between compiled vs interpreted:
 When interpreter language looks at line 3, it doesn’t know what is in line 4.
 A compiled language generally knows what’s going on in before execution.
 
@@ -535,7 +535,7 @@ JavaScript consists of **two passes** - the compilation, and the execution.
 
 ### LHS vs RHS - LeftHandSide, RightHandSide
 
-`lhs` = left hand side  
+`lhs` = left hand side
 `rhs` = right hand side
 ~~~
 var foo = “bar”;
@@ -560,7 +560,7 @@ function bar() {       // Start function
 }                      // end
 ~~~
 
-Answer from function bar:  
+Answer from function bar:
 Yes, I have variable “foo” → send memory reference.
 
 ~~~
@@ -571,7 +571,7 @@ function bar() {
 ~~~
 (assign value to this memory ID)
 
-What happens when variable is not defined in scope:  
+What happens when variable is not defined in scope:
 ~~~
 function bar() {
    bam = “yay”;     // Hey “bar”, do you have variable named “bam”?
@@ -579,7 +579,7 @@ function bar() {
 }                   // Start search for “bam” in global scope
                     // If variable “x” is not created in global scope, global scope
                     // creates the variable “x”.
-~~~                    
+~~~
 
 
 To prevent _variable leakage_ to global scope, use strict mode.
@@ -593,7 +593,7 @@ To prevent _variable leakage_ to global scope, use strict mode.
 
 ~~~
 // “undeclared”:
-unDec; 
+unDec;
 => TypeError, variable not defined
 
 // “undefined”:
@@ -604,7 +604,7 @@ unDef;
 
 ~~~
 function bar(sampleVar) {
-   
+
    var sampleVar = 3;           // Hey scope, I want to declare “samplevar”
                                 // scope: no big deal, it’s already declared
 
@@ -625,14 +625,14 @@ An **LHS** is only when you have assignment
 ~~~
 var x = “hey”;
     ^ LHS   ^ RHS
-~~~    
+~~~
 
 ~~~
 function bar(x) { ... }
           ^ RHS
-~~~          
+~~~
 
-RHS and LHS have different behavior. 
+RHS and LHS have different behavior.
 
 ~~~
 bar();  // → Step 1: Retrieve “bar” variable
@@ -640,7 +640,7 @@ bar();  // → Step 1: Retrieve “bar” variable
         // → Step 2: See the parentheses
         // ()
         // → Step 3: Try to execute the variable
-~~~        
+~~~
 
 **Everything that is not LHS is RHS**
 
@@ -656,8 +656,8 @@ foo;
 => “bar”
 ~~~
 
-If you ask for an undeclared (in current scope) **LHS** object, it gets created in 
-the global scope.  
+If you ask for an undeclared (in current scope) **LHS** object, it gets created in
+the global scope.
 If you ask for an undeclared (in current scope) **RHS** object, it throws a
 ReferenceError.
 
@@ -682,12 +682,12 @@ bar();     // Error!
 ~~~
 
 Most function **expressions** are anonymous:
-`var hey = function(x) { ... }` 
+`var hey = function(x) { ... }`
 
-Three negatives to anonymous function expressions:  
-• no way to refer to the current running function  
-• they don’t play well in debugging  
-• it self-descriptive (you can give it an intuitive name)  
+Three negatives to anonymous function expressions:
+• no way to refer to the current running function
+• they don’t play well in debugging
+• it self-descriptive (you can give it an intuitive name)
 
 Always use named functions in expressions!
 
@@ -705,14 +705,14 @@ var foo = function bar(x) {
             var foo = “hey”;
             bar();
             };
-~~~ 
+~~~
 
-The `catch` phrase is _block scoped_ 
+The `catch` phrase is _block scoped_
 
 ~~~
 catch(err) {           //
    var hey = err;      //  Block Scoped
-}                      // 
+}                      //
 
 console.log(hey); // ReferenceError
 ~~~
@@ -738,13 +738,13 @@ foo(“var heyThere = 42;”);
 ~~~
 
 This slows down the JS engine. It prevents optimizations.
-Don’t use eval, ever. 
+Don’t use eval, ever.
 
 
 `with` keyword:
 
 ~~~
-obj.a = obj.b + obj.c; 
+obj.a = obj.b + obj.c;
 
 with (obj) {
    a = b + c;     // It operates on properties of object “obj”
@@ -770,20 +770,20 @@ Self-executing functions serve the function of _hiding variables_
 (function() {
    var foo = “foo2”;
    console.log(foo);
-})();                        
+})();
 => “foo2”
 
-console.log(foo) 
+console.log(foo)
 => ReferenceError: foo is not defined
 ~~~
-It’s called “IIFE”. You want to name your “IIFE” functions. 
+It’s called “IIFE”. You want to name your “IIFE” functions.
 
 ### L7 - “let” keyword - block scoped variables, and the “let” block
 `let` keyword - block-scoped variables
 
-The `let` keyword:  
-• it does not hoist  
-• needs more thinking than var  
+The `let` keyword:
+• it does not hoist
+• needs more thinking than var
 
 `let` block:
 
@@ -792,21 +792,21 @@ let (varName = ‘hey there’) {
    console.log(varName);   // → ‘hey there’
 }
    console.log(varName);   // Error
-~~~   
+~~~
 `let` declares and initializes a variable that is block scoped to the { } block.
 
 
 How does a “let block” work:
 1. “let” statement + variable assignment
 
-`let (name = “Matt”)`  
+`let (name = “Matt”)`
 ^ keyword    ^ variable declaration
 
 
 2. Create the special block
 
 ~~~
-let (name = “Matt”) 
+let (name = “Matt”)
 {
    // special block
    // variable “name” is only defined within this block
@@ -824,11 +824,11 @@ It doesn’t work in ES6 though. How to solve it:
 
 ### L8 - Lexical Scoping vs Dynamic Scoping with examples
 
-Lexical Scoping vs Dynamic Scoping  
-**lexical** = author time decision   
+Lexical Scoping vs Dynamic Scoping
+**lexical** = author time decision
 Lexical gets compiled, and then the scopes are solid and unchangeable
 
-**dynamic** = runtime decision  
+**dynamic** = runtime decision
 Dynamic scoping is fluid - scopes are defined during runtime
 
 Example of theoritical dynamic scoping:
@@ -857,7 +857,7 @@ baz();  // 1. Call function “baz”
 
 ### L9 - Hoisting with examples - Pre-compiled vs Post-compiled
 
-Pre-compiled code:  
+Pre-compiled code:
 ~~~
 a;
 b;
@@ -867,7 +867,7 @@ b;
 a;
 ~~~
 
-^ This code gets compiled and you get  
+^ This code gets compiled and you get
 Post-compiled code:
 ~~~
 var a;  // Compiler looks for variables and declares them
@@ -883,7 +883,7 @@ a;      // 2;
 ~~~
 
 
-All LHS gets handled during compile-time. 
+All LHS gets handled during compile-time.
 
 
 
@@ -891,7 +891,7 @@ How it works for functions:
 ~~~
 var a = b(); // “Hey there” - function declaration
 var c = d(); // Error: Not a function - function expression
-a;  // 
+a;  //
 c;  //
 
 function b() {
@@ -903,13 +903,13 @@ var d = function() {
 };
 ~~~
 
-Reason:  
+Reason:
 function expressions behave differently to function declarations.
 
 Variable `b` gets processed by the compiler, but variable `d` and its contained
 function gets hoisted.
 
-So:  
+So:
 `var c = d()` // `d` is not a function, because d is undefined at this time.
 
 How to think about it:
@@ -936,7 +936,7 @@ c = d();                // Now it works.
 
 ### L10 - Function Hoisting - Part 2 + Mutual Recursion
 
-Pre-compiled code:  
+Pre-compiled code:
 ~~~
 answer();
 
@@ -954,7 +954,7 @@ Post-compiled code:
 
 ~~~
 function answer() {                    // This function gets initialized first
-   console.log(“first function”);   
+   console.log(“first function”);
 }
 function answer() {                    // Declared second, overrides the first
    console.log(“second function”);
@@ -969,7 +969,7 @@ Functions get hoisted first
 Variable declarations get hoisted second
 
 
-**Recursion** - when a function calls itself  
+**Recursion** - when a function calls itself
 **Mutual recursion** - when two or more functions call each other
 
 Functions get hoisted, because **mutual recursion** needs to work.
@@ -1013,7 +1013,7 @@ o2.foo();    // “bar2”
 o3.foo();    // “bar3”
 ~~~
 
-Four rules of the `this` keyword:  
+Four rules of the `this` keyword:
 If you ever have a problem with the “this” keyword look at the _call location_ and
 check these four rules:
 
@@ -1033,11 +1033,11 @@ foo(); // “bar1” <- When the call site looks like this, this (fourth) rule a
 ~~~
 In this case `this` = `window`
 
-**This is the default rule**  
+**This is the default rule**
 If none of the other rules apply, this rule is valid
 
-The default rule:   
-If I’m in _strict mode_ → default `this` keyword to `undefined`  
+The default rule:
+If I’m in _strict mode_ → default `this` keyword to `undefined`
 If I’m in _normal mode_ → default `this` keyword to the global object (window etc.)
 
 Strict mode doesn’t have to be global: it can be function-wide.
@@ -1046,7 +1046,7 @@ Strict mode doesn’t have to be global: it can be function-wide.
 “use strict”
 function foo() { ... };  ← this function uses strict, so strict rule applies -
                            “undefined”
-~~~                           
+~~~
 
 ---
 
@@ -1060,7 +1060,7 @@ var o2 = { bar: “bar-o2”, foo: foo };   // This is the “base object”
                         ^ This is not a copy, but just a _reference_ to the function
                           The “foo” property is the call site.
 
-// o2 is a “base object”. 
+// o2 is a “base object”.
 
 o2.foo() // “bar-o2” ← The “this” bind becomes the base object of the call site.
 ~~~
@@ -1079,7 +1079,7 @@ function foo() {
 var bar = “bar1”;
 var obj = { bar: “HeyThere” };
 
-foo();    
+foo();
 => “bar1” (window.bar)
 foo.call(obj);          //  Base object gets changed, “this” binding = “obj”
 => “HeyThere” (obj.bar)
@@ -1107,12 +1107,12 @@ foo = function() { orig.call(obj); };  // Bind the “this” keyword of the fun
 foo();                                 // “bar”
 foo.call(obj2);                        // “bar”  ← Can’t call it as a method of “obj2”, because it is
                                        //   hard binded to “obj”.
-~~~                              
+~~~
 
 In this example, function foo() always use `obj` as the `this` reference.
 
 
-Automated binding solution:  
+Automated binding solution:
 ~~~
 function bind(fn, obj) {     // This function takes in an object
    return function() {       // and a function as arguments
@@ -1150,7 +1150,7 @@ You could run the same function from 4 different places and with each call there
 be a different “this” value for that function.
 
 ### L12 - The “new” keyword
-The `new` keyword has nothing to do with instantiating classes. 
+The `new` keyword has nothing to do with instantiating classes.
 JavaScript _does not_ have classes, and the new keyword _has nothing to do_
 with instantiating classes.
 
@@ -1163,7 +1163,7 @@ What the `new` keyword does:
 
 
 ## 2. Closure
-What is closure? Closure comes from _lambda calculus_. 
+What is closure? Closure comes from _lambda calculus_.
 
 **closure** - when a function remembers its lexical scope even when the function
 is executed outside that lexical scope.
@@ -1207,12 +1207,12 @@ k(); // 3         by the “k” function expression.
 
 ### L2 - Classical module pattern - way to use closures
 
-Crockford’s classical module pattern:  
-• there has to be an enclosing function  
+Crockford’s classical module pattern:
+• there has to be an enclosing function
 • there has to be one or more functions returned that have access to the private scope
   made possible by the enclosing function
 
-Example:  
+Example:
 ~~~
 var foo = (function() {          // Enclosing function
             var name = ‘Matt’;   // private variables
@@ -1235,7 +1235,7 @@ A stylistically better way, that can use _named functions_:
 ~~~
 var foo = (function() {
    var myFnc = {
-      
+
       bar: function() { myFnc.baz(); },
       baz: function() { console.log(‘baz’); };
 
@@ -1260,7 +1260,7 @@ return {
 This is the same as the classical module pattern, except it requires an additional
 library, and spares you the “inconvenience” of using IIFEs.
 
-It converts your code info 
+It converts your code info
 ~~~
 var foo = IIFE
 ^ 1st arg  ^ 2nd arg
@@ -1294,7 +1294,7 @@ foo.bar();   // “bar”
 
 ## 3. Object-Orienting
 ### L1 - Prototype mechanism
-Every single “object” is built by a constructor function. 
+Every single “object” is built by a constructor function.
 It’s not an instantiated class, but built by a constructor function.
 
 Each time a constructor is called, a new object is called.
@@ -1302,12 +1302,12 @@ It’s not an instance, but a new object.
 
 It’s often said that a constructor makes an object “based on” its own prototype.
 It’s not true, because it implies that it takes a prototype and stamps a copy of it.
-It doesn’t work like that in JS. 
+It doesn’t work like that in JS.
 
-Remember the four rules of the “new” keyword. 
+Remember the four rules of the “new” keyword.
 
-To get the prototype of an object, you can use the 
-objectName.<span>\_\_proto\_\_   
+To get the prototype of an object, you can use the
+objectName.<span>\_\_proto\_\_
 Two underscores → proto → two underscores
 
 \_\_proto\_\_ and .constructor are both writeable, so you can change them.
@@ -1319,7 +1319,7 @@ function Foo() {
     this.me = “hey”;
 }
 
-var k = new Foo(); 
+var k = new Foo();
 ~~~
   1. New object (`k`) gets created
   2. `k` gets linked to foo.prototype via [[P]] link
@@ -1334,7 +1334,7 @@ function Foo(who) {
 }
 Foo.prototype.myName = “matt”;
 var k = new Foo(“test”);
-          
+
            k object           Foo.prototype
     / +——————————+            +——————————+
       |          |   [[P]]    |          |
@@ -1371,7 +1371,7 @@ If you can’t find a property on the current object, it traverses to its protot
 ~~~
   +—————————+
   | - - - - |  < Top object                || go down
-  | - - - - |  < prototype1                || 
+  | - - - - |  < prototype1                ||
   | - - - - |  < prototype of prototype1   || go down
   | - - - - |  < prototype3                ||
   | - - - - |  < prototype4                || go down
@@ -1379,7 +1379,7 @@ If you can’t find a property on the current object, it traverses to its protot
   | - - - - |  < Object.prototype          —— If not in Object.prototype - can’t find
   +—————————+
 ~~~
- 
+
 
 ### L2 - Linking prototypes
 
@@ -1388,7 +1388,7 @@ function Foo(who) {
    this.me = who;
 }
 
-Foo.prototype.identify = 
+Foo.prototype.identify =
     function() {
         return “I am “ + this.me;
     };
@@ -1431,18 +1431,18 @@ map(compose(setText, teaser(50), text), all(‘p’));
 
 ## Recognize pure functions
 Functions that don’t change anything are called “pure”.
-Because they don’t change anything, they are:  
-• testable  
-• portable  
-• memoizable (easy to remember)  
-• paralleizable (asynchronous)  
+Because they don’t change anything, they are:
+• testable
+• portable
+• memoizable (easy to remember)
+• paralleizable (asynchronous)
 
 A function shouldn’t log anything, set anything, or rely on any
 other function.
 
 ## Recursion
-Recursion - two characteristics:  
-the thing calls itself,  
+Recursion - two characteristics:
+the thing calls itself,
 the thing has a base case that stops the recursion
 
 # ES6
