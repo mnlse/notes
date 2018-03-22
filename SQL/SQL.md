@@ -389,4 +389,36 @@ To delete all rows:
 DELETE FROM cats;
 ~~~
 
+# Running SQL Files
+`first_file.sql`
+~~~SQL
+CREATE TABLE cats
+(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  age INT
+)
+~~~
+
+To run a file:
+## PostgreSQL
+
+~~~
+\i file_name.sql
+\include file_name.sql
+~~~
+
+## MySQL
+~~~
+source file_name.sql
+~~~
+
+# String Functions
+## CONCAT
+~~~
+SELECT CONCAT('Hello', ' ', 'World');
+
+SELECT CONCAT(first_name, ' ', last_name) FROM employees
+~~~
+
 
